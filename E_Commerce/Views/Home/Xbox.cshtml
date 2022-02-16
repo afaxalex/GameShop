@@ -1,0 +1,19 @@
+﻿@model IEnumerable<E_Commerce.Models.ProductModel>
+
+    <h1>Xbox</h1>
+
+@foreach (var p in Model)
+{
+    if(p.Category.Id == 2)
+    {
+        <tr>
+        <td>
+            <div class="mb-3">
+                <div><strong>@p.Name</strong></div>
+                <div class="text-muted">@p.Description</div>
+                <a asp-action="Details" asp-route-id="@p.Id">Details</a>
+            </div>
+        </td>
+    </tr>
+    }
+}
