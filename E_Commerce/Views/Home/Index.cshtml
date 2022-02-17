@@ -1,24 +1,33 @@
 ﻿@model IEnumerable<E_Commerce.Models.ProductModel>
 
-<div class="container align-text-center">
+<div class="container-fluid d-flex justify-content-center mb-5 mt-5">
     @foreach (var p in Model)
     {
-        <button type="button" class="btn btn-primary btn-lg" asp-action="@p.Category.Name">@p.Category.Name</button>
+        <a type="button" class="btn btn-primary btn-lg d-inline m-3" asp-controller="Home" asp-action="@p.Category.Name">@p.Category.Name</a>
     }
 </div>
 
-<div class="container">
-    @foreach (var p in Model)
-    {
-        <div class="card mt-5 ">
-            <div class="card-body">
-                <h5 class="card-title">@p.Name</h5>
-                <p class="card-text">@p.Description</p>
-                <a class="btn btn-primary" asp-action="Details" asp-route-id="@p.Id">Details</a>
-                <button class="btn btn-primary">Buy</button>
+<partial name="_CategoryLinkPartial" />
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach (var p in Model)
+        {
+            <div class="col">
+                <div class="card h-75 overflow-hidden pb-3 border border-bottom-0 rounded-0 ">
+                    <div class="card-body align-text-bottom">
+                        <h5 class="card-title pb-4">@p.Name</h5>
+                        <p class="card-text p-2 text-muted">@p.Description</p>
+                    </div>
+                </div>
+                <div class="card-footer bg-light border d-flex justify-content-center">
+                    <a class="btn btn-primary w-25 p-2 m-1" asp-action="Details" asp-route-id="@p.Id">Details</a>
+                    <button class="btn btn-primary w-50 p-2 m-1">Buy</button>
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
+
 
 
