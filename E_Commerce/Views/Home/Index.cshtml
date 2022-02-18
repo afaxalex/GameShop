@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<E_Commerce.Models.ProductModel>
 
-<div class="container-fluid d-flex justify-content-center mb-5 mt-5">
+<div class="d-flex justify-content-center mb-5 mt-5">
     @foreach (var p in Model)
     {
-        <a type="button" class="btn btn-primary btn-lg d-inline m-3" asp-controller="Home" asp-action="@p.Category.Name">@p.Category.Name</a>
+        <a type="button" class="btn btn-primary btn-lg d-inline m-3" 
+            data-toggle="popover" title="Popover title" data-content=""
+            asp-controller="Home" asp-action="@p.Category.Name">@p.Category.Name</a>
     }
 </div>
-
-<partial name="_CategoryLinkPartial" />
 
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
