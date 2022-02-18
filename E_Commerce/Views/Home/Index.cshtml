@@ -3,26 +3,28 @@
 <div class="d-flex justify-content-center mb-5 mt-5">
     @foreach (var p in Model)
     {
-        <a type="button" class="btn btn-primary btn-lg d-inline m-3" 
-            data-toggle="popover" title="Popover title" data-content=""
-            asp-controller="Home" asp-action="@p.Category.Name">@p.Category.Name</a>
+        if(p.Category.Id == 1)
+        {
+            <a type="button" asp-controller="Home" asp-action="@p.Category.Name">@p.Name</a>
+        }
     }
 </div>
 
-<div class="container mt-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+
+
+<div class="container mt-5 border-top">
+    <div class="row row-cols-1 row-cols-md-4 mt-3">
         @foreach (var p in Model)
         {
-            <div class="col">
-                <div class="card h-75 overflow-hidden pb-3 border border-bottom-0 rounded-0 ">
-                    <div class="card-body align-text-bottom">
-                        <h5 class="card-title pb-4">@p.Name</h5>
-                        <p class="card-text p-2 text-muted">@p.Description</p>
+            <div class="col mb-5 mt-5">
+                <div class="card h-75 border-bottom-0 rounded-0 bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="text-decoraction-none text-black" asp-action="Details" asp-route-id="@p.Id">@p.Name</a></h5>
+                        <a class="card-text text-decoraction-none text-black"asp-controller="Home" asp-action="@p.Category.Name">@p.Category.Name</a>
                     </div>
                 </div>
                 <div class="card-footer bg-light border d-flex justify-content-center">
-                    <a class="btn btn-primary w-25 p-2 m-1" asp-action="Details" asp-route-id="@p.Id">Details</a>
-                    <button class="btn btn-primary w-50 p-2 m-1">Buy</button>
+                    <button class="btn btn-primary w-100 p-2 m-1">Buy</button>
                 </div>
             </div>
         }
