@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<E_Commerce.Models.ProductModel>
 
-    <h1>Nintendo</h1>
-
-@foreach (var p in Model)
+@*@foreach (var p in Model)
 {
     if(p.Category.Id == 4)
     {
@@ -16,4 +14,29 @@
         </td>
     </tr>
     }
-}
+}*@
+
+<div class="container mt-5 border-top">
+    <div class="row row-cols-1 row-cols-md-4 mt-3">
+        @foreach (var p in Model)
+        {
+            if(p.Category.Id == 4)
+            {
+                
+
+            <div class="col mb-5 mt-5">
+                <div class="card h-75 border-bottom-0 border rounded-0 bg-danger">
+                    <div class="card-body">
+                        <h6 class="card-title"><a class="text-light text-decoration-none" asp-action="Details" asp-route-id="@p.Id">@p.Name</a></h6>
+                        <a class="card-text text-decoration-none text-light"asp-controller="Home" asp-action="@p.Category.Name">@p.Category.Name</a>
+                    </div>
+                </div>
+                <div class="card-footer bg-light border d-flex justify-content-center">
+                    <button class="btn btn-primary w-100 p-2 m-1">Buy</button>
+                </div>
+            </div>
+            }
+
+        }
+    </div>
+</div>
