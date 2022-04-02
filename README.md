@@ -1,4 +1,4 @@
 # GameShop
 
-Small school project building an e-commerce site with ASP.NET MVC and ASP.NET Web API.
+School project building an e-commerce site with ASP.NET MVC and ASP.NET Web API.
 
